@@ -7,7 +7,6 @@ export default defineEventHandler(async event => {
   const { sessionCookie } = await readBody(event);
   try {
     const claim = getAuth().verifySessionCookie(sessionCookie);
-
     return {statusCode: 200, claim: claim};
   } catch(error) {
     console.error("Error:", error);

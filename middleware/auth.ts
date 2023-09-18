@@ -1,5 +1,7 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
 	if (process.server) {
+		console.log(process.server);
+		
 		const cookie = useCookie("session");
     console.log(cookie.value);
 		const response = await fetch("/api/checkauthstatus", {
